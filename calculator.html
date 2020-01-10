@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pocket Calculator</title>
+    </head>
+    <style>
+        body {
+            width: 322px;
+            height: 621px;
+            background-image: url(calc-image.jpg);
+            background-repeat:no-repeat;
+        }
+        .grid-container {
+            grid-area:auto;
+            display: grid;
+            grid-template-columns: 40px 73px 45px 70px;
+            background-color: rgba(30, 166, 245, 0);
+            padding: 13px 13px 13px 13px;
+            margin: 102px 50px 70px 35px;
+        }
+            .grid-item {
+            background-color: rgba(58, 245, 245, 0);
+            padding: 11px;
+            position: relative;
+            font-size: 30px;
+            text-align: center;
+            color: pink;
+        }
+        a {
+            text-decoration: none;
+            color:rgba(30, 166, 245, .6);
+        }
+        a:hover  {
+            visibility:hidden
+        }
+        #display {
+            margin-top: 130px;
+            margin-left: 40px;
+            font-family: "digital-7";
+            color: #66ff33;
+            font-size: 24px;
+        }
+        @font-face {
+            font-family: "digital-7.regular.tff";
+            src: url("digital-7.regular.tff");
+        }
+    </style>
+    <body>
+        <section id="display">BOOBLESS</section>
+        <div class="grid-container">
+            <div class="grid-item">
+             <a id="clear" href="javascript: void(0)">C</a>
+            </div>
+            <div class="grid-item">
+             <a id="modelo" name="operators" href="javascript: void(0)">M</a>
+            </div>
+            <div class="grid-item">
+             <a id="noClue" href="javascript: void(0)">?</a>
+            </div>
+            <div class="grid-item">
+             <a id="divide" name="operators" href="javascript: void(0)">%</a>
+            </div>
+            <div class="grid-item">
+             <a id="7" name="numbers" href="javascript: void(0)">7</a>
+            </div>
+            <div class="grid-item">
+             <a id="8" name="numbers"href="javascript: void(0)">8</a>
+            </div>
+            <div class="grid-item">
+             <a id="9" name="numbers"href="javascript: void(0)">9</a>
+            </div>
+            <div class="grid-item">
+             <a id="multiply" name="operators"href="javascript: void(0)">X</a>
+            </div>
+            <div class="grid-item">
+             <a id="4" name="numbers" href="javascript: void(0)">4</a>
+            </div>
+            <div class="grid-item">
+             <a id="5" name="numbers" href="javascript: void(0)">5</a>
+            </div>
+            <div class="grid-item">
+                <a id="6" name="numbers" href="javascript: void(0)">6</a>
+            </div>
+            <div class="grid-item">
+                <a id="subtract" name="operators" href="javascript: void(0)">-</a>
+            </div>
+            <div class="grid-item">
+                <a id="1" name="numbers" href="javascript: void(0)">1</a>
+            </div>
+            <div class="grid-item">
+                <a id="2" name="numbers" href="javascript: void(0)">2</a>
+            </div>
+            <div class="grid-item">
+                <a id="3" name="numbers" href="javascript: void(0)">3</a>
+            </div>
+            <div class="grid-item">
+                <a id="plus" name="operators" href="javascript: void(0)">+</a>
+            </div>
+            <div class="grid-item">
+                <a id="0" name="numbers" href="javascript: void(0)">0</a>
+            </div>
+            <div class="grid-item">
+                <a id="decimal" name="operators" href="javascript: void(0)">.</a>
+            </div>
+            <div class="grid-item">
+                <a href="javascript: void(0)">C</a>
+            </div>
+            <div class="grid-item">
+                <a id="equal" name="operators" href="javascript: void(0)">=</a>
+            </div>
+        </div>
+        
+
+    </body>
+
+
+
+
+
+
+
+
+
+</html>
