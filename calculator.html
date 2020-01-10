@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Pocket Calculator</title>
-    </head>
     <style>
         body {
             width: 322px;
@@ -14,105 +13,207 @@
         .grid-container {
             grid-area:auto;
             display: grid;
-            grid-template-columns: 40px 73px 45px 70px;
+            grid-template-columns: 40px 73px 40px 70px;
             background-color: rgba(30, 166, 245, 0);
             padding: 13px 13px 13px 13px;
-            margin: 102px 50px 70px 35px;
+            margin: 104px 50px 40px 39px;
         }
             .grid-item {
             background-color: rgba(58, 245, 245, 0);
-            padding: 11px;
-            position: relative;
-            font-size: 30px;
+            padding-bottom: 18px;
+            font-size: 3px;
             text-align: center;
             color: pink;
         }
-        a {
-            text-decoration: none;
-            color:rgba(30, 166, 245, .6);
-        }
-        a:hover  {
-            visibility:hidden
-        }
         #display {
-            margin-top: 130px;
-            margin-left: 40px;
+            height:30px;
+            width: 218px;
+            margin-top: 123px;
+            margin-left: 37px;
             font-family: "digital-7";
             color: #66ff33;
-            font-size: 24px;
+            font-size: 34px;
         }
         @font-face {
             font-family: "digital-7.regular.tff";
             src: url("digital-7.regular.tff");
         }
+        .button {
+            width: 44px;
+            height:40px;
+            background-color: rgba(30, 166, 245, 0);
+            border: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+        }
     </style>
+    </head>
     <body>
-        <section id="display">BOOBLESS</section>
+        <div id="display">07734</div>
         <div class="grid-container">
             <div class="grid-item">
-             <a id="clear" href="javascript: void(0)">C</a>
+             <button type="button" class="button" id="clear" onClick="clearLast();"></button>button>
             </div>
             <div class="grid-item">
-             <a id="modelo" name="operators" href="javascript: void(0)">M</a>
+             <button type="button" class="button" id="modelo" name="operators" onclick="operate('%');"></button>
             </div>
             <div class="grid-item">
-             <a id="noClue" href="javascript: void(0)">?</a>
+             <button type="button" class="button" id="noClue"onClick="boobless();"></button>
             </div>
             <div class="grid-item">
-             <a id="divide" name="operators" href="javascript: void(0)">%</a>
+             <button type="button" class="button" id="divide" name="operators" onclick="operate('/');"></button>
             </div>
             <div class="grid-item">
-             <a id="7" name="numbers" href="javascript: void(0)">7</a>
+             <button type="button" id="7" class="button" name="numbers"onClick="displayShow('7');"></button>
             </div>
             <div class="grid-item">
-             <a id="8" name="numbers"href="javascript: void(0)">8</a>
+             <button type="button" class="button" id="8" name="numbers" onClick="displayShow('8');"></button>
             </div>
             <div class="grid-item">
-             <a id="9" name="numbers"href="javascript: void(0)">9</a>
+             <button type="submit" class="button" class="button" id="9" name="numbers"onClick="displayShow('9');"></button>
             </div>
             <div class="grid-item">
-             <a id="multiply" name="operators"href="javascript: void(0)">X</a>
+             <button type="button" class="button" id="multiply" name="operators" onclick="operate('*');"></button>
             </div>
             <div class="grid-item">
-             <a id="4" name="numbers" href="javascript: void(0)">4</a>
+             <button type="button" class="button" id="4" name="numbers"onClick="displayShow('4');"></button>
             </div>
             <div class="grid-item">
-             <a id="5" name="numbers" href="javascript: void(0)">5</a>
+                <button type="button" class="button" id="5" name="numbers"onClick="displayShow('5');"></button>
             </div>
             <div class="grid-item">
-                <a id="6" name="numbers" href="javascript: void(0)">6</a>
+                <button type="button" class="button" id="6" name="numbers" onClick="displayShow('6')"></button>
             </div>
             <div class="grid-item">
-                <a id="subtract" name="operators" href="javascript: void(0)">-</a>
+                <button type="button" class="button" id="subtract" name="operators" onclick="operate('-');"></button>
             </div>
             <div class="grid-item">
-                <a id="1" name="numbers" href="javascript: void(0)">1</a>
+                <button type="button" class="button" id="1" name="numbers"onClick="displayShow('1');"></button>
             </div>
             <div class="grid-item">
-                <a id="2" name="numbers" href="javascript: void(0)">2</a>
+                <button type="button" class="button" id="2" name="numbers" onClick="displayShow('2');"></button>
             </div>
             <div class="grid-item">
-                <a id="3" name="numbers" href="javascript: void(0)">3</a>
+                <button type="button" class="button" id="3" name="numbers" onClick="displayShow('3');"></button>
             </div>
             <div class="grid-item">
-                <a id="plus" name="operators" href="javascript: void(0)">+</a>
+                <button type="button" class="button" id="plus" name="operators"onClick="operate('+');"></button>
             </div>
             <div class="grid-item">
-                <a id="0" name="numbers" href="javascript: void(0)">0</a>
+                <button type="button" class="button" id="0" name="numbers" onClick="displayShow('0');"></button>
             </div>
             <div class="grid-item">
-                <a id="decimal" name="operators" href="javascript: void(0)">.</a>
+                <button type="button" class="button" id="decimal" name="operators" onClick="displayShow('.');"></button>
             </div>
             <div class="grid-item">
-                <a href="javascript: void(0)">C</a>
+                <button type="button" class="button" id="clear2" onclick="clearItAll();"></button>
             </div>
             <div class="grid-item">
-                <a id="equal" name="operators" href="javascript: void(0)">=</a>
+                <button type="button" class="button" id="equal" name="operators"onClick="solve();"></button>
             </div>
         </div>
-        
+        <script>
+            let total = [];
+            let operation = [];
+            let result = document.getElementById("display").innerHTML
+            function displayShow(val) {
+                if (document.getElementById("display").innerHTML === "07734") {
+                    clearItAll();
+                }
+                if (document.getElementById("display").innerHTML.length < 14) {
+                  return document.getElementById("display").innerHTML += val;
+                }
+            }   
+            function clearLast() {
+                return document.getElementById("display").innerHTML = '';
+            }
+            function clearItAll() {
+                return document.getElementById("display").innerHTML = '';
+                return total = [];
+                return operation = [];
+            }
+            function boobless() {
+                return document.getElementById("display").innerHTML = 55378008;
+            }
+            function operate(val) {
+                total.push(document.getElementById("display").innerHTML);
+                clearLast();
+                document.getElementById("display").innerHTML = val;
+                switch (val) {
+                    case '+':
+                        operation.push('+');
+                        clearLast();
+                        break;
+                    case '-':
+                        operation.push('-');
+                        clearLast();
+                        break;
+                    case '*':
+                        operation.push('*');
+                        clearLast();
+                        break;
+                    case '/':
+                        operation.push('/');
+                        clearLast();
+                        break;
+                    case '%':
+                        operation.push('%');
+                        clearLast();
+                        break;
+                }
+            }
+            function solve() {
+                total.push(document.getElementById("display").innerHTML);
+                let result = 0;
+                for (let i = 0; i < operation.length; i++) {
+                    if (operation[0] === "*") {
+                      result += parseFloat(total[i]) * parseFloat(total[i + 1]);
+                      total.shift();
+                      operation.shift();
+                      total.push(result);
+                    } else if (operation[0] === "+") {
+                      result += parseFloat(total[i]) + parseFloat(total[i + 1]);
+                      total.shift();
+                      operation.shift();
+                      total.push(result);
+                    } else if (operation[0] === "-") {
+                      result += parseFloat(total[i]) - parseFloat(total[i + 1]);
+                      total.shift();
+                      operation.shift();
+                      total.push(result);
+                    
+                    } else if (operation[0] === "/") {
+                      result += parseFloat(total[i]) / parseFloat(total[i + 1]);
+                      total.shift();
+                      operation.shift();
+                      total.push(result);
+                    } else if ((parseFloat(total[i]) % parseFloat(total[i + 1])) === 0) {
+                      total.shift();
+                      operation.shift();
+                      total.push(result);
+                    } else {
+                      result += parseFloat(total[i]) % parseFloat(total[i + 1]);
+                      total.shift();
+                      operation.shift();
+                      total.push(result);
+                    }
+                }
+                cleanUp();
+                if (result.toString().length > 15) {
+                    return document.getElementById("display").innerHTML = parseFloat(result.toString().slice(0, 15));
+                } else {
+                    return document.getElementById("display").innerHTML = result;
+            }
+            function cleanUp() {
+                return total = [];
+                return operation = [];
+            }
+        }
+        </script>
 
     </body>
+
 
 
 
