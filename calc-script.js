@@ -1,6 +1,7 @@
 
 
-
+/* i'd like to make these all variables, but i had trouble getting the html to respond
+it initially. */
 let clear = document.getElementById("clear");
 let modelo = document.getElementById("modelo");
 let divide = document.getElementById("divide");
@@ -70,11 +71,12 @@ function operate(val) {
       break;
   }
 }
+
 function solve() {
   total.push(document.getElementById("display").innerHTML);
   let result = 0;
   for (let i = 0; i < operation.length; i++) {
-    if (operation[0] === "*") {
+    if (operation[0] === "*") { // this could be a switch statement instead.
       result += parseFloat(total[i]) * parseFloat(total[i + 1]);
       total.shift();
       operation.shift();
@@ -116,4 +118,11 @@ function cleanUp() {
   return total = [];
   return operation = [];
 }
-
+modelo.onclick = operate('%');
+clear.onclick = clearLast;
+divide.onclick = operate('/');
+multiply.onclick = operate('*');
+subtract.onclick = operate('-');
+add.onclick = operate('+');
+decimal.onclick = displayShow('.');
+equal.onclick = solve;
