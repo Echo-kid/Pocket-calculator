@@ -24,30 +24,30 @@ let display = document.getElementById("display").innerHTML;
 
 let total = [];
 let operation = [];
-let result = document.getElementById("display").innerHTML
+let result = display;
 function displayShow(val) {
-  if (document.getElementById("display").innerHTML === "07734") {
+  if (display === "07734") {
     clearItAll();
   }
-  if (document.getElementById("display").innerHTML.length < 14) {
-    return document.getElementById("display").innerHTML += val;
+  if (disply.length < 14) {
+    return display += val;
   }
  }   
 function clearLast() {
-  return document.getElementById("display").innerHTML = '';
+  return display = '';
 }
 function clearItAll() {
-  return document.getElementById("display").innerHTML = '';
+  return display = '';
   return total = [];
   return operation = [];
 }
 function boobless() {
-  return document.getElementById("display").innerHTML = 55378008;
+  return display = 55378008;
 }
 function operate(val) {
-  total.push(document.getElementById("display").innerHTML);
+  total.push(display);
   clearLast();
-  document.getElementById("display").innerHTML = val;
+  display = val;
   switch (val) {
     case '+':
       operation.push('+');
@@ -73,7 +73,7 @@ function operate(val) {
 }
 
 function solve() {
-  total.push(document.getElementById("display").innerHTML);
+  total.push(display);
   let result = 0;
   for (let i = 0; i < operation.length; i++) {
     if (operation[0] === "*") { // this could be a switch statement instead.
@@ -109,9 +109,9 @@ function solve() {
   }
   cleanUp();
   if (result.toString().length > 15) {
-    return document.getElementById("display").innerHTML = parseFloat(result.toString().slice(0, 15));
+    return display = parseFloat(result.toString().slice(0, 15));
       } else {
-        return document.getElementById("display").innerHTML = result;
+        return display = result;
    }
 }
 function cleanUp() {
