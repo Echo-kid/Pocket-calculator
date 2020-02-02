@@ -21,15 +21,25 @@ let zero = document.getElementById("0");
 let decimal = document.getElementById("decimal");
 let clear2 = document.getElementById("clear2");
 let display = document.getElementById("display").innerHTML;
-
 let total = [];
 let operation = [];
 let result = display;
+modelo.onclick = operate('%');
+one.onclick = displayShow('1');
+clear.onlick = clearLast;
+clear2.onclick = clearItAll;
+divide.onclick = operate('/');
+multiply.onclick = operate('*');
+subtract.onclick = operate('-');
+add.onclick = operate('+');
+decimal.onclick = displayShow('.');
+equal.onclick = solve;
+one.onclick = displayShow('1');
 function displayShow(val) {
   if (display === "07734") {
     clearItAll();
   }
-  if (disply.length < 14) {
+  if (display.length < 14) {
     return display += val;
   }
  }   
@@ -118,11 +128,3 @@ function cleanUp() {
   return total = [];
   return operation = [];
 }
-modelo.onclick = operate('%');
-clear.onclick = clearLast;
-divide.onclick = operate('/');
-multiply.onclick = operate('*');
-subtract.onclick = operate('-');
-add.onclick = operate('+');
-decimal.onclick = displayShow('.');
-equal.onclick = solve;
