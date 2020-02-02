@@ -1,0 +1,79 @@
+body {
+    width: 322px;
+    height: 621px;
+    position: absolute;
+    background-image: url(calc-image.jpg);
+    background-repeat:no-repeat;
+}
+.grid-container {
+    grid-area:auto;
+    display: grid;
+    grid-template-columns: 40px 73px 40px 70px;
+    background-color: rgba(30, 166, 245, 0);
+    padding: 13px 13px 13px 13px;
+    margin: 104px 50px 40px 39px;
+}
+    .grid-item {
+    background-color: rgba(58, 245, 245, 0);
+    padding-bottom: 18px;
+    font-size: 3px;
+    text-align: center;
+    color: pink;
+}
+#display {
+    height:30px;
+    width: 218px;
+    margin-top: 123px;
+    margin-left: 37px;
+    font-family: 'digital-7', 'Cute Font';
+    color: #66ff33;
+    font-size: 34px;
+}
+.neon {
+    color: #fff;
+    text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+    animation: neon 4s ease-in-out infinite alternate;
+}
+@keyframes neon {
+    from {
+        text-shadow:
+        0 0 3px rgba(202,228,225,0.52),
+        0 0 5px rgba(202,228,225,0.24),
+        0 0 6px rgba(30,132,242,0.32),
+        0 0 8px rgba(30,132,242,0.72),
+        0 0 9px rgba(30,132,242,0.58),
+        0 0 10px rgba(30,132,242,0.72);
+    }
+}
+@font-face {
+    font-family: 'digital-7regular';
+    src: url('digital-7.regular-webfont.woff2') format('woff2'),
+    url('digital-7.regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+   font-family: 'pocket_calculatorregular';
+   src: url('pocketcalculator-qjd-webfont.woff2') format('woff2'),
+   url('pocketcalculator-qjd-webfont.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
+.button {
+    width: 44px;
+    height:40px;
+    outline: none;
+    background-color: rgba(30, 166, 245, 0);
+    border: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
