@@ -4,6 +4,6 @@ tags: []
 
 ---
 # JS & HTML Soviet Calculator.
-a little JS and HTML pop-up window calculator. One of the first projects I tried on my own. I found
-an image of a soviet calculator and placed a grid on the numbers. I then used to JS to interact with the 
-DOM and create a calculator. 
+A little JS and HTML pop-up window calculator. One of the first projects I tried on my own. I found
+an image of a soviet calculator and placed a grid on the numbers. The JS file works with the buttons using
+event listeners. 
