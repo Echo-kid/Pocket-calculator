@@ -82,7 +82,6 @@ function operate(val) {
     }
     clearLast();
     if (total.length !== 0 && operation.length < total.length) {
-        console.log("triggered!");
         switch (val) {
             case '+':
                 operation.push('+');
@@ -114,11 +113,8 @@ function solve() {
         if (operation[0] === "*") {
             if (start === false) {
                 result += parseFloat(total[0]) * parseFloat(total[1]);
-                console.log(total);
                 total.splice(0, 2);
                 operation.shift();
-                console.log(total);
-                console.log(operation);
                 start = true;
             } else {
                 result *= parseFloat(total[0]);
@@ -129,27 +125,20 @@ function solve() {
         } else if (operation[0] === "/") {
             if (start === false) {
                 result += parseFloat(total[0]) / parseFloat(total[1]);
-                console.log(total);
                 total.splice(0, 2);
                 operation.shift();
-                console.log(total);
-                console.log(operation);
                 start = true;
             } else {
                 result /= parseFloat(total[0]);
                 total.shift();
                 operation.shift();
             }
-            
+
         } else if (operation[0] === "-") {
             if (start === false) {
                 result += parseFloat(total[0]) - parseFloat(total[1]);
-                console.log(total);
-                console.log(operation);
                 total.splice(0, 2);
                 operation.shift();
-                console.log(total);
-                console.log(operation);
                 start = true;
             } else {
                 result -= parseFloat(total[0]);
@@ -160,11 +149,8 @@ function solve() {
         } else if (operation[0] === "+") {
             if (start === false) {
                 result += parseFloat(total[0]) + parseFloat(total[1]);
-                console.log(total);
                 total.splice(0, 2);
                 operation.shift();
-                console.log(total);
-                console.log(operation);
                 start = true;
             } else {
                 result += parseFloat(total[0]);
@@ -175,11 +161,8 @@ function solve() {
         } else {
             if (start === false) {
                 result += parseFloat(total[0]) % parseFloat(total[1]);
-                console.log(total);
                 total.splice(0, 2);
                 operation.shift();
-                console.log(total);
-                console.log(operation);
                 start = true;
             } else {
                 result %= parseFloat(total[0]);
@@ -201,6 +184,5 @@ function solve() {
         start = false;
         total = [];
         operation = [];
-        console.log("this is happening clean up");
     }
 }
