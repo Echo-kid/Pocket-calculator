@@ -52,7 +52,7 @@ noClue.addEventListener("click", () => {
 
 });
 
-
+let start = false;
 
 function displayShow(val) {
     if (display.innerHTML === "07734") {
@@ -81,7 +81,7 @@ function operate(val) {
         total.push(display.innerHTML);
     }
     clearLast();
-    if (total.length !== 0 && operation.length <= 1) {
+    if (total.length !== 0 && operation.length < total.length) {
         console.log("triggered!");
         switch (val) {
             case '+':
@@ -110,52 +110,97 @@ function operate(val) {
 function solve() {
     total.push(display.innerHTML);
     let result = 0;
-    for (let i = 0; i < operation.length; i++) {
+    while (operation.length > 0) {
         if (operation[0] === "*") {
-            result += parseFloat(total[i]) * parseFloat(total[i + 1]);
-            total.shift();
-            operation.shift();
-            total.push(result);
+            if (start === false) {
+                result += parseFloat(total[0]) * parseFloat(total[1]);
+                console.log(total);
+                total.splice(0, 2);
+                operation.shift();
+                console.log(total);
+                console.log(operation);
+                start = true;
+            } else {
+                result *= parseFloat(total[0]);
+                total.shift();
+                operation.shift();
+            }
             
         } else if (operation[0] === "/") {
-            result += parseFloat(total[i]) / parseFloat(total[i + 1]);
-            total.shift();
-            operation.shift();
-            total.push(result);
-
-        } else if (operation[0] === "-") {
-                result += parseFloat(total[i]) - parseFloat(total[i + 1]);
-                total.shift();
+            if (start === false) {
+                result += parseFloat(total[0]) / parseFloat(total[1]);
+                console.log(total);
+                total.splice(0, 2);
                 operation.shift();
-                total.push(result);
-            
-            } else if (operation[0] === "+") {
-                result += parseFloat(total[i]) + parseFloat(total[i + 1]);
-                total.shift();
-                operation.shift();
-                total.push(result);
-
-            } else if ((parseFloat(total[i]) % parseFloat(total[i + 1])) === 0) {
-                total.shift();
-                operation.shift();
-                total.push(result);
-
+                console.log(total);
+                console.log(operation);
+                start = true;
             } else {
-                result += parseFloat(total[i]) % parseFloat(total[i + 1]);
+                result /= parseFloat(total[0]);
                 total.shift();
                 operation.shift();
-                total.push(result);
+            }
+            
+        } else if (operation[0] === "-") {
+            if (start === false) {
+                result += parseFloat(total[0]) - parseFloat(total[1]);
+                console.log(total);
+                console.log(operation);
+                total.splice(0, 2);
+                operation.shift();
+                console.log(total);
+                console.log(operation);
+                start = true;
+            } else {
+                result -= parseFloat(total[0]);
+                total.shift();
+                operation.shift();
+            }
+
+        } else if (operation[0] === "+") {
+            if (start === false) {
+                result += parseFloat(total[0]) + parseFloat(total[1]);
+                console.log(total);
+                total.splice(0, 2);
+                operation.shift();
+                console.log(total);
+                console.log(operation);
+                start = true;
+            } else {
+                result += parseFloat(total[0]);
+                total.shift();
+                operation.shift();
+            }
+            
+        } else {
+            if (start === false) {
+                result += parseFloat(total[0]) % parseFloat(total[1]);
+                console.log(total);
+                total.splice(0, 2);
+                operation.shift();
+                console.log(total);
+                console.log(operation);
+                start = true;
+            } else {
+                result %= parseFloat(total[0]);
+                total.shift();
+                operation.shift();
             }
         }
-        cleanUp();
-        if (result.toString().length > 14) {
-            display.innerHTML = result.toExponential(8);
+        
+    }
+    cleanUp();
+    if (result.toString().length > 14) {
+        display.innerHTML = result.toExponential(8);
 
-        } else {
-            display.innerHTML = result;
+    } else {
+
+        display.innerHTML = result;
     }
     function cleanUp() {
+        start = false;
         total = [];
         operation = [];
+        console.log("this is happening clean up");
     }
 }
