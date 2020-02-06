@@ -46,7 +46,11 @@ addButton.addEventListener("click", () => operate('+'));
 subtractButton.addEventListener("click", () => operate('-'));
 multiplyButton.addEventListener("click", () => operate('*'));
 decimal.addEventListener("click", () => displayShow('.'));
-noClue.addEventListener("click", () => display.innerHTML = `HI THERE!`);
+noClue.addEventListener("click", () => {
+    clearItAll();
+    display.innerHTML = "HI THERE!";
+
+});
 
 
 
@@ -54,12 +58,15 @@ function displayShow(val) {
     if (display.innerHTML === "07734") {
         clearItAll();
     }
+    if (display.innerHTML === "HI THERE!") {
+        clearItAll();
+    }
     if (display.innerHTML.length < 14) {
-        return display.innerHTML += val;
+        display.innerHTML += val;
     }
 }   
 function clearLast() {
-    return display.innerHTML = '';
+    display.innerHTML = '';
 }
 function clearItAll() {
     display.innerHTML = '';
@@ -67,30 +74,37 @@ function clearItAll() {
     operation = [];
 }
 function operate(val) {
-    total.push(display.innerHTML);
+    if (display.innerHTML === "07734" || display.innerHTML === "HI THERE!") {
+        clearItAll();
+    }
+    if (display.innerHTML !== '') {
+        total.push(display.innerHTML);
+    }
     clearLast();
-    display.innerHTML = val;
-    switch (val) {
-        case '+':
-            operation.push('+');
-            clearLast();
-            break;
-        case '-':
-            operation.push('-');
-            clearLast();
-            break;
-        case '*':
-            operation.push('*');
-            clearLast();
-            break;
-        case '/':
-            operation.push('/');
-            clearLast();
-            break;
-        case '%':
-            operation.push('%');
-            clearLast();
-            break;
+    if (total.length !== 0 && operation.length <= 1) {
+        console.log("triggered!");
+        switch (val) {
+            case '+':
+                operation.push('+');
+                clearLast();
+                break;
+            case '-':
+                operation.push('-');
+                clearLast();
+                break;
+            case '*':
+                operation.push('*');
+                clearLast();
+                break;
+            case '/':
+                operation.push('/');
+                clearLast();
+                break;
+            case '%':
+                operation.push('%');
+                clearLast();
+                break;
+        }
     }
 }
 function solve() {
@@ -102,26 +116,30 @@ function solve() {
             total.shift();
             operation.shift();
             total.push(result);
-        } else if (operation[0] === "+") {
-            result += parseFloat(total[i]) + parseFloat(total[i + 1]);
+            
+        } else if (operation[0] === "/") {
+            result += parseFloat(total[i]) / parseFloat(total[i + 1]);
             total.shift();
             operation.shift();
             total.push(result);
+
         } else if (operation[0] === "-") {
-            result += parseFloat(total[i]) - parseFloat(total[i + 1]);
+                result += parseFloat(total[i]) - parseFloat(total[i + 1]);
                 total.shift();
                 operation.shift();
                 total.push(result);
             
-            } else if (operation[0] === "/") {
-                result += parseFloat(total[i]) / parseFloat(total[i + 1]);
+            } else if (operation[0] === "+") {
+                result += parseFloat(total[i]) + parseFloat(total[i + 1]);
                 total.shift();
                 operation.shift();
                 total.push(result);
+
             } else if ((parseFloat(total[i]) % parseFloat(total[i + 1])) === 0) {
                 total.shift();
                 operation.shift();
                 total.push(result);
+
             } else {
                 result += parseFloat(total[i]) % parseFloat(total[i + 1]);
                 total.shift();
@@ -130,10 +148,11 @@ function solve() {
             }
         }
         cleanUp();
-        if (result.toString().length > 15) {
-            return display.innerHTML = parseFloat(result.toString().slice(0, 15));
+        if (result.toString().length > 14) {
+            display.innerHTML = result.toExponential(8);
+
         } else {
-            return display.innerHTML = result;
+            display.innerHTML = result;
     }
     function cleanUp() {
         total = [];
